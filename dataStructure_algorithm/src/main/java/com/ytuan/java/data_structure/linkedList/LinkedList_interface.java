@@ -1,8 +1,6 @@
-package com.ytuan.java.data_structure.array;
+package com.ytuan.java.data_structure.linkedList;
 
-public interface Arrays_interface<E> {
-
-    int getCapacity();
+public interface LinkedList_interface<E> {
 
     int getSize();
 
@@ -16,11 +14,13 @@ public interface Arrays_interface<E> {
 
     E get(int index);
 
+    E getFirst();
+
+    E getLast();
+
     E set(int index, E element);
 
     boolean contains(E element);
-
-    int find(E element);
 
     E remove(int index);
 
