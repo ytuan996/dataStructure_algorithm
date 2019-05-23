@@ -14,11 +14,13 @@ public class LinkedListQueue_Impl<E> implements Queue_interface<E> {
 
     @Override
     public int getSize() {
+
         return linkedList.getSize();
     }
 
     @Override
     public boolean isEmpty() {
+
         return linkedList.isEmpty();
     }
 
