@@ -30,4 +30,5 @@ public interface Arrays_interface<E> {
 
     void removeElement(E element);
 
+    void swap(int index1, int index2);
 }

@@ -35,7 +35,7 @@ public class Main {
     public static void main(String[] args) {
 
         // 如果文件找不到就换成本机的绝对路径
-        String filename = "pride-and-prejudice.txt";
+        String filename = "/Users/ytuan/java_idea/dataStructure_algorithm/dataStructure_algorithm/src/main/java/com/ytuan/java/data_structure/pride-and-prejudice.txt";
 
         BinarySearchTreeMap_Impl<String, Integer> bstMap = new BinarySearchTreeMap_Impl<>();
         double time1 = testMap(bstMap, filename);
