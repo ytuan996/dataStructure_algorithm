@@ -165,7 +165,7 @@ public class Arrays_Impl<E> implements Arrays_interface<E> {
     @Override
     public void swap(int index1, int index2) {
 
-        E tmp  = data[index1];
+        E tmp = data[index1];
         data[index1] = data[index2];
         data[index2] = tmp;
     }

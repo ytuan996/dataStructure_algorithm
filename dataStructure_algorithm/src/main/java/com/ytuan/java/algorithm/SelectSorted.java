@@ -21,7 +21,7 @@ public class SelectSorted {
 
         SelectSorted selectSorted = new SelectSorted();
 
-        int arr[] = new int[] {6,4,8,7,5};
+        int arr[] = new int[]{6, 4, 8, 7, 5};
         selectSorted.selectSorted(arr);
 
         for (int i = 0; i < arr.length; i++) {

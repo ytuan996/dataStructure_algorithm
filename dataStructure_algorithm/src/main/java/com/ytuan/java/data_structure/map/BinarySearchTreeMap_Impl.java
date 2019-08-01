@@ -20,7 +20,7 @@ public class BinarySearchTreeMap_Impl<K extends Comparable<K>, V> implements Map
     private TreeNode getNode(TreeNode root, K key) {
 
 
-        if (root == null ||key.compareTo(root.key) == 0 )
+        if (root == null || key.compareTo(root.key) == 0)
             return root;
         else if (key.compareTo(root.key) < 0)
             return getNode(root.left, key);
