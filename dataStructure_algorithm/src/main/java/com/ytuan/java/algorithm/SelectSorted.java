@@ -33,11 +33,11 @@ public class SelectSorted {
      * @Author: ytuan
      * @Date: 2019-08-30  00:20
      */
-    public void selectSorted(int arr[]) {
+    public void selectSorted(int[] arr) {
 
-        int i = 0;
-        int j = 0;
-        int min = 0;
+        int i;
+        int j;
+        int min;
 
         int len = arr.length;
 
