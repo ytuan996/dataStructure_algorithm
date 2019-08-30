@@ -22,13 +22,10 @@ public class InsertSorted {
 
         InsertSorted insertSorted = new InsertSorted();
 
-        int arr[] = new int[]{3, 8, 6, 12, 9, 4, 7};
+        int arr[] = new int[]{0, 9, 1, 5, 8, 3, 7, 4, 6, 2};
 
         insertSorted.insertSorted2(arr);
 
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + "\t");
-        }
     }
 
     /**
@@ -77,6 +74,9 @@ public class InsertSorted {
                 arr[j] = arr[j - 1];
 
             arr[j] = ele;
+
+            ArrayUtils.printArray(arr);
+            System.out.println();
         }
     }
 }
