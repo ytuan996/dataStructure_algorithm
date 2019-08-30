@@ -70,18 +70,25 @@ public class QuickSorted {
 
         pivot = arr[low];
 
+        // 优化2. 减少不必要的交换
+        int ele = pivot;
+
         while (low < high) {
 
             while (low < high && arr[high] > pivot) {
                 high--;
             }
-            ArrayUtils.swap(arr, low, high);
+            //ArrayUtils.swap(arr,low, high);
+            arr[low] = arr[high];
 
             while (low < high && arr[low] < pivot) {
                 low++;
             }
-            ArrayUtils.swap(arr, low, high);
+            //ArrayUtils.swap(arr,low, high);
+            arr[high] = arr[low];
         }
+
+        arr[low] = ele;
 
         return low;
     }
