@@ -16,6 +16,13 @@ package com.ytuan.java.algorithm.search;
  */
 public class SequentSearch {
 
+    public static void main(String[] args) {
+
+        int arr[] = new int[]{6, 8, 4, 3, 9, 7};
+        int i = new SequentSearch().sequentSearch(arr, 9);
+        System.out.println(i);
+    }
+
     /**
      * 最简单的顺序查找方法
      *
@@ -36,7 +43,6 @@ public class SequentSearch {
     }
 
     /**
-     *
      * @param arr
      * @param target
      * @return
