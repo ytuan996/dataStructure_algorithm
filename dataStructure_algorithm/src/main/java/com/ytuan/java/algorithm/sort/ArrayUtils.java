@@ -1,4 +1,4 @@
-package com.ytuan.java.algorithm;
+package com.ytuan.java.algorithm.sort;
 
 /**
  *

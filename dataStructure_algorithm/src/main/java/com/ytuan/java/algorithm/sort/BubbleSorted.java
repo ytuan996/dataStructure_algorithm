@@ -1,4 +1,4 @@
-package com.ytuan.java.algorithm;
+package com.ytuan.java.algorithm.sort;
 
 /**
  * 冒泡排序；即是一种交换排序
