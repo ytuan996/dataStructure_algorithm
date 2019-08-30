@@ -48,6 +48,26 @@ public class QuickSorted {
         /*基准值的下标*/
         int pivot;
 
+        /**
+         *  优化1. 基准值的选择 选取一组随机数 或者 分别选取左，中，右三个数排序后取中值
+         */
+
+        // 中间值的下标
+        int mid = low + (high - low) / 2;
+
+        // 交换左、右两端，保证左端最小
+        if (arr[low] > arr[high]) {
+            ArrayUtils.swap(arr, low, high);
+        }
+        // 交换中，右两端数据，保证中间最小
+        if (arr[mid] > arr[high]) {
+            ArrayUtils.swap(arr, mid, high);
+        }
+        // 交换左，中两端数据，保证左端最小
+        if (arr[mid] > arr[low]) {
+            ArrayUtils.swap(arr, low, mid);
+        }
+
         pivot = arr[low];
 
         while (low < high) {
