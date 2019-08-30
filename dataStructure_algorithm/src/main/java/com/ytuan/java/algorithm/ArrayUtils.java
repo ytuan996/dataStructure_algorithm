@@ -1,5 +1,10 @@
 package com.ytuan.java.algorithm;
 
+/**
+ *
+ * @Author: ytuan
+ * @Date: 2019-08-30  17:32
+ */
 public class ArrayUtils {
 
     public static void swap(int arr[], int p, int q) {
