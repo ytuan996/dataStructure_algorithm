@@ -42,10 +42,15 @@ public class MergeSorted {
 
         int len = arr.length;
 
-        split(arr, 0, arr.length - 1);
+        split(arr, 0, len - 1);
 
     }
 
+    /**
+     * @param arr
+     * @param start
+     * @param end
+     */
     private void split(int arr[], int start, int end) {
 
         if (start >= end)
@@ -59,12 +64,14 @@ public class MergeSorted {
         if (arr[mid] > arr[mid + 1])
             merge(arr, start, mid, end);
 
-        System.out.print("经过一次排序处理：");
-        ArrayUtils.printArray(arr);
-        System.out.println();
-        System.out.println("start = " + start + "\t" + "end = " + end);
     }
 
+    /**
+     * @param arr
+     * @param start
+     * @param mid
+     * @param end
+     */
     private void merge(int[] arr, int start, int mid, int end) {
 
         int aux[] = new int[(end - start) + 1];
