@@ -41,6 +41,11 @@ public class QuickSorted {
 
         quickSorted(arr, low, mid - 1);
         quickSorted(arr, mid + 1, high);
+
+        // 优化3. 数据较小时采用直接插入排序的方式
+        if (arr.length < 15) {
+            new InsertSorted().insertSorted2(arr);
+        }
     }
 
     private int parttion(int[] arr, int low, int high) {
