@@ -5,6 +5,23 @@ import com.ytuan.java.data_structure.queue.Queue_interface;
 import com.ytuan.java.data_structure.stack.ArrayStack_Impl;
 import com.ytuan.java.data_structure.stack.Stack_interface;
 
+/**
+ * <p>
+ * comment:二分搜索树，可以在查找的同时实现插入和删除，即动态查找表
+ * </p>
+ * <p>
+ * 性质1. 若左子树不为空，那么左子树上所有的节点都小于它的根节点。
+ * 性质2. 若右子树不为空，那么右子树上所有的节点都大于它的根节点。
+ * 性质3. 它的左右子树也为二分搜索树。
+ * </p>
+ * <p>
+ * BST的致命弱点：二分搜索树的查找性能取决于二叉树的形状，对于本身有序的序列，那么就会是一颗边斜树，
+ * 查找将退为顺序查找，复杂度为O(n)。
+ * 解决办法是平衡二叉树：AVLTree
+ * </p>
+ *
+ * @param <E> 泛型
+ */
 public class BinarySearchTree_Impl<E extends Comparable<E>> implements BinarySearchTree_interface<E> {
 
     private TreeNode root;
@@ -36,6 +53,13 @@ public class BinarySearchTree_Impl<E extends Comparable<E>> implements BinarySea
         root = add(root, element);
     }
 
+    /**
+     * BST的插入实现
+     *
+     * @param root
+     * @param element
+     * @return 插入之后BST的根节点
+     */
     private TreeNode add(TreeNode root, E element) {
 
         if (root == null) {
@@ -55,6 +79,13 @@ public class BinarySearchTree_Impl<E extends Comparable<E>> implements BinarySea
         return contains(root, element);
     }
 
+    /**
+     * 二分搜索树的查找实现
+     *
+     * @param root
+     * @param element
+     * @return
+     */
     private boolean contains(TreeNode root, E element) {
 
         if (root == null)
@@ -192,7 +223,8 @@ public class BinarySearchTree_Impl<E extends Comparable<E>> implements BinarySea
     private TreeNode removeMin(TreeNode root) {
 
         if (root.left == null) {
-            TreeNode rightNode = root.right; // 暂存root为根的最小节点的右节点
+            // 暂存root为根的最小节点的右节点
+            TreeNode rightNode = root.right;
             root.right = null; // 删除右节点的引用
             size--;
             return rightNode; // 返回删除之后的右节点
@@ -232,16 +264,36 @@ public class BinarySearchTree_Impl<E extends Comparable<E>> implements BinarySea
         root = removeElement(root, element);
     }
 
+    /**
+     * 整体思路：找到待删除的直接后继节点，并使用该节点替换待删除的节点
+     *
+     * @param root
+     * @param element
+     * @return
+     */
     private TreeNode removeElement(TreeNode root, E element) {
 
+        /**
+         * 查找到待删除节点的位置，分三种情况：
+         * 1.待删除节点在根节点的左边
+         * 2.待删除节点在节点的右边
+         * 3.当前节点就是待删除的节点
+         *
+         */
         if (element.compareTo(root.val) < 0) {
             root.left = removeElement(root.left, element);
             return root;
         } else if (element.compareTo(root.val) > 0) {
             root.right = removeElement(root.right, element);
             return root;
-        } else {  // element.compareTo(root.val) == 0
+        } else {  // element.compareTo(root.val) == 0 找到待删除的节点
 
+            /**
+             * 找到了待删除的节点后，又分为三种情况：
+             * 1.待删除的节点没有左子树，此时直接将待删除节点替换为右子树即可
+             * 2.待删除的节点没有右子树，此时直接将待删除节点替换为左子树即可
+             * 3.待删除节点左右子树均不为空的情况
+             */
             if (root.left == null) {
                 TreeNode rightNode = root.right;
                 root.right = null;
@@ -254,10 +306,14 @@ public class BinarySearchTree_Impl<E extends Comparable<E>> implements BinarySea
                 return leftNode;
             } else {
 
-                // 待删除节点左右子树均不为空的情况
+                /**
+                 * 待删除节点左右子树均不为空的情况，分为两步：
+                 *
+                 * 1. 找到比待删除节点大的最小节点, 即待删除节点右子树的最小节点
+                 * 2. 用这个节点顶替待删除节点的位置
+                 */
 
-                // 找到比待删除节点大的最小节点, 即待删除节点右子树的最小节点
-                // 用这个节点顶替待删除节点的位置
+                // 得到右子树的最小节点，也就是待删除节点的直接后继
                 TreeNode successor = getMinNode(root.right);
                 successor.right = removeMin(root.right);
                 successor.left = root.left;
